@@ -17,17 +17,25 @@
 ;; MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ;; GNU General Public License for more details.
 
+;;; Commentary:
 
-;; vars conforming to the XDG Base Directory Specification
+;; Defines vars conforming to the XDG Base Directory Specification
+;;
+;; NOTE: This only works for Linux and MacOS currently.
+;; Windows is not supported.
+
 ;; https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-(setq xdg-config-home (or (getenv "XDG_CONFIG_HOME") "~/.config/"))
-(setq xdg-cache-home (or (getenv "XDG_CACHE_HOME") "~/.cache/"))
-(setq xdg-data-home (or (getenv "XDG_DATA_HOME") "~/.local.share/"))
-(setq xdg-state-home (or (getenv "XDG_STATE_HOME") "~/.local.state/"))
 
-(setq xdg-config-emacs (expand-file-name "emacs" xdg-config-home))
-(setq xdg-cache-emacs (expand-file-name "emacs" xdg-cache-home))
-(setq xdg-data-emacs (expand-file-name "emacs" xdg-data-home))
-(setq xdg-state-emacs (expand-file-name "emacs" xdg-state-home))
+;;; Code:
 
-;; xdg.el end of file
+(defvar xdg-config-home (or (getenv "XDG_CONFIG_HOME") "~/.config/"))
+(defvar xdg-cache-home (or (getenv "XDG_CACHE_HOME") "~/.cache/"))
+(defvar xdg-data-home (or (getenv "XDG_DATA_HOME") "~/.local.share/"))
+(defvar xdg-state-home (or (getenv "XDG_STATE_HOME") "~/.local.state/"))
+
+(defvar xdg-config-emacs (expand-file-name "emacs" xdg-config-home))
+(defvar xdg-cache-emacs (expand-file-name "emacs" xdg-cache-home))
+(defvar xdg-data-emacs (expand-file-name "emacs" xdg-data-home))
+(defvar xdg-state-emacs (expand-file-name "emacs" xdg-state-home))
+
+;;; xdg.el end of file
