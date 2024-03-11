@@ -13,7 +13,7 @@ Examples:
 
 ```lisp
 ;; specify where MELPA/ELPA package installations go in XDG style config dir
-(setq package-user-dir (expand-file-name "elpa" xdg-config-emacs))
+(setq package-user-dir (expand-file-name "elpa" xdg-cache-emacs))
 
 ;; Prevent undo tree files from polluting the filesystem (use XDG_STATE_HOME)
 (setq undo-tree-history-directory-alist
@@ -52,3 +52,4 @@ NOTE: This only works for Linux and MacOS currently. Windows is not supported.
 * https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
 * https://wiki.archlinux.org/title/XDG_Base_Directory
 * https://github.com/melpa/melpa/blob/master/CONTRIBUTING.org
+* https://www.reddit.com/r/linux/comments/ny34vs/new_xdg_state_home_in_xdg_base_directory_spec/
