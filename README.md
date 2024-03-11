@@ -7,7 +7,7 @@ NOTE: This only works for Linux and MacOS currently. Windows is not supported.
 
 This allows setting various paths to XDG standard directories:
 
-```
+```lisp
 (setq package-user-dir (expand-file-name "elpa" xdg-config-emacs))
 ```
 
