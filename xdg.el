@@ -1,4 +1,4 @@
-;;; xdg.el --- XDG Directory variables defined for emacs -*- lexical-binding: t -*-
+;;; xdg.el --- XDG Base Directory vars defined for emacs -*- lexical-binding: t -*-
 
 ;; Author: Ryan Snodgrass <rsnodgrass@gmail.com>
 ;; Homepage: https://github.com/rsnodgrass/xdg-emacs
@@ -37,5 +37,9 @@
 (defvar xdg-cache-emacs (expand-file-name "emacs" xdg-cache-home))
 (defvar xdg-data-emacs (expand-file-name "emacs" xdg-data-home))
 (defvar xdg-state-emacs (expand-file-name "emacs" xdg-state-home))
+
+;; https://www.freedesktop.org/wiki/Software/xdg-user-dirs/
+(defvar xdg-desktop-dir (or (getenv "XDG_DESKTOP_DIR") "~/Desktop")))
+(defvar xdg-download-dir (or (getenv "XDG_DOWNLOAD_DIR") "~/Downloads"))
 
 ;;; xdg.el end of file

@@ -29,12 +29,14 @@ configuration can use this:
 
 The following XDG globals are defined:
 
-| emacs var        | ENV var           | Default (per spec) |
-|------------------|-------------------|--------------------|
-| xdg-cache-home   | `XDG_CACHE_HOME`  | ~/.cache/          |
-| xdg-config-home  | `XDG_CONFIG_HOME` | ~/.config/         |
-| xdg-data-home    | `XDG_DATA_HOME`   | ~/.local/share/    |
-| xdg-state-home   | `XDG_STATE_HOME`  | ~/.local/state/    |
+| emacs var        | ENV var            | Default (per spec) |
+|------------------|--------------------|--------------------|
+| xdg-cache-home   | `XDG_CACHE_HOME`   | ~/.cache/          |
+| xdg-config-home  | `XDG_CONFIG_HOME`  | ~/.config/         |
+| xdg-data-home    | `XDG_DATA_HOME`    | ~/.local/share/    |
+| xdg-state-home   | `XDG_STATE_HOME`   | ~/.local/state/    |
+| xdg-desktop-dir  | `XDG_DESKTOP_DIR`  | ~/Desktop          |
+| xdg-download-dir | `XDG_DOWNLOAD_DIR` | ~/Downloads        |
 
 Plus additional emacs specific subdir:
 
@@ -47,9 +49,12 @@ Plus additional emacs specific subdir:
 
 NOTE: This only works for Linux and MacOS currently. Windows is not supported.
 
+
 ## See Also
 
-* https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html
-* https://wiki.archlinux.org/title/XDG_Base_Directory
+* [XDG Base Directory](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html)
+* [XDG Base Directory - ArchLinux](https://wiki.archlinux.org/title/XDG_Base_Directory)
+* [XDG reddit discussion](https://www.reddit.com/r/linux/comments/ny34vs/new_xdg_state_home_in_xdg_base_directory_spec/)
+* [XDG User Dirs](https://www.freedesktop.org/wiki/Software/xdg-user-dirs/)
+
 * https://github.com/melpa/melpa/blob/master/CONTRIBUTING.org
-* https://www.reddit.com/r/linux/comments/ny34vs/new_xdg_state_home_in_xdg_base_directory_spec/
