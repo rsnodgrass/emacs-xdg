@@ -29,14 +29,14 @@ configuration can use this:
 
 The following XDG globals are defined:
 
-| emacs var        | ENV var            | Default (per spec) |
-|------------------|--------------------|--------------------|
-| xdg-cache-home   | `XDG_CACHE_HOME`   | ~/.cache/          |
-| xdg-config-home  | `XDG_CONFIG_HOME`  | ~/.config/         |
-| xdg-data-home    | `XDG_DATA_HOME`    | ~/.local/share/    |
-| xdg-state-home   | `XDG_STATE_HOME`   | ~/.local/state/    |
-| xdg-desktop-dir  | `XDG_DESKTOP_DIR`  | ~/Desktop          |
-| xdg-download-dir | `XDG_DOWNLOAD_DIR` | ~/Downloads        |
+| emacs var        | ENV var            | Default (per spec) | Default (MacOS) | Default (Windows) |
+|------------------|--------------------|--------------------|---|---|
+| xdg-cache-home   | `XDG_CACHE_HOME`   | ~/.cache/          |   |   |
+| xdg-config-home  | `XDG_CONFIG_HOME`  | ~/.config/         | <same> | |
+| xdg-data-home    | `XDG_DATA_HOME`    | ~/.local/share/    |   |   |
+| xdg-state-home   | `XDG_STATE_HOME`   | ~/.local/state/    |   |   |
+| xdg-desktop-dir  | `XDG_DESKTOP_DIR`  | ~/Desktop          | <same> | |
+| xdg-download-dir | `XDG_DOWNLOAD_DIR` | ~/Downloads        | <same> | |
 
 Plus additional emacs specific subdir:
 
