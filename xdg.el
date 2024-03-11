@@ -28,18 +28,30 @@
 
 ;;; Code:
 
+(setq windows-system-types '("cygwin" "ms-dos" "windows-nt"))
+
 (defvar xdg-config-home (or (getenv "XDG_CONFIG_HOME") "~/.config/"))
 (defvar xdg-cache-home (or (getenv "XDG_CACHE_HOME") "~/.cache/"))
 (defvar xdg-data-home (or (getenv "XDG_DATA_HOME") "~/.local/share/"))
 (defvar xdg-state-home (or (getenv "XDG_STATE_HOME") "~/.local/state/"))
 
+;; FIXME: some other reasonable MacOS defaults:
+;; (if (eq system-type 'darwin))
+;;
+;;   XDG_CONFIG_HOME = /Library/Preferences/
+;;   XDG_DATA_HOME = ~/Library/
+;;   XDG_CACHE_HOME = ~/Library/Caches/My App/
+y
 (defvar xdg-config-emacs (expand-file-name "emacs" xdg-config-home))
 (defvar xdg-cache-emacs (expand-file-name "emacs" xdg-cache-home))
 (defvar xdg-data-emacs (expand-file-name "emacs" xdg-data-home))
 (defvar xdg-state-emacs (expand-file-name "emacs" xdg-state-home))
 
+;; XDG User Directory support
 ;; https://www.freedesktop.org/wiki/Software/xdg-user-dirs/
-(defvar xdg-desktop-dir (or (getenv "XDG_DESKTOP_DIR") "~/Desktop")))
-(defvar xdg-download-dir (or (getenv "XDG_DOWNLOAD_DIR") "~/Downloads"))
+(if (not (member system-type windows-system-types))
+    (defvar xdg-desktop-dir (or (getenv "XDG_DESKTOP_DIR") "~/Desktop"))
+    (defvar xdg-download-dir (or (getenv "XDG_DOWNLOAD_DIR") "~/Downloads")))
+
 
 ;;; xdg.el end of file
