@@ -36,12 +36,14 @@
 (defvar xdg-state-home (or (getenv "XDG_STATE_HOME") "~/.local/state/"))
 
 ;; FIXME: some other reasonable MacOS defaults:
-;; (if (eq system-type 'darwin))
+;;  (if (eq system-type 'darwin))
 ;;
-;;   XDG_CONFIG_HOME = /Library/Preferences/
+;;   XDG_CONFIG_HOME = ~/Library/Application Support
+;;   XDG_CACHE_HOME = ~/Library/Caches/
 ;;   XDG_DATA_HOME = ~/Library/
-;;   XDG_CACHE_HOME = ~/Library/Caches/My App/
-y
+;;
+;; this follows other language defaults, such as Go (https://pkg.go.dev/os#UserCacheDir)
+
 (defvar xdg-config-emacs (expand-file-name "emacs" xdg-config-home))
 (defvar xdg-cache-emacs (expand-file-name "emacs" xdg-cache-home))
 (defvar xdg-data-emacs (expand-file-name "emacs" xdg-data-home))
