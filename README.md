@@ -14,10 +14,12 @@ This allows setting various paths to XDG standard directories:
 
 The following XDG globals are defined:
 
-* xdg-cache-home
-* xdg-config-home
-* xdg-data-home
-* xdg-state-home
+| emacs var        | ENV var        | Default (per spec) |
+|------------------|----------------|--------------------|
+| xdg-cache-home   | `XDG_CACHE_HOME` | ~/.cache/        |
+| xdg-config-home  | `XDG_CONFIG_HOME` | ~/.config/      |
+| xdg-data-home    | `XDG_DATA_HOME` | ~/.local/share/  |
+| xdg-state-home   | `XDG_STATE_HOME` | ~/.local/state/  |
 
 Plus additional emacs specific subdir:
 

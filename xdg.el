@@ -30,8 +30,8 @@
 
 (defvar xdg-config-home (or (getenv "XDG_CONFIG_HOME") "~/.config/"))
 (defvar xdg-cache-home (or (getenv "XDG_CACHE_HOME") "~/.cache/"))
-(defvar xdg-data-home (or (getenv "XDG_DATA_HOME") "~/.local.share/"))
-(defvar xdg-state-home (or (getenv "XDG_STATE_HOME") "~/.local.state/"))
+(defvar xdg-data-home (or (getenv "XDG_DATA_HOME") "~/.local/share/"))
+(defvar xdg-state-home (or (getenv "XDG_STATE_HOME") "~/.local/state/"))
 
 (defvar xdg-config-emacs (expand-file-name "emacs" xdg-config-home))
 (defvar xdg-cache-emacs (expand-file-name "emacs" xdg-cache-home))
