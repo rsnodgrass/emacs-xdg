@@ -28,32 +28,48 @@
 
 ;;; Code:
 
-(setq windows-system-types '("cygwin" "ms-dos" "windows-nt"))
+(setq dos-system-types '("cygwin" "ms-dos" "windows-nt"))
 
-(defvar xdg-config-home (or (getenv "XDG_CONFIG_HOME") "~/.config/"))
-(defvar xdg-cache-home (or (getenv "XDG_CACHE_HOME") "~/.cache/"))
-(defvar xdg-data-home (or (getenv "XDG_DATA_HOME") "~/.local/share/"))
-(defvar xdg-state-home (or (getenv "XDG_STATE_HOME") "~/.local/state/"))
+;; XDG Base Directory support ------------------------------------------------------
 
-;; FIXME: some other reasonable MacOS defaults:
-;;  (if (eq system-type 'darwin))
+(if (not (member system-type dos-system-types))
+    ((defvar xdg-config-home (or (getenv "XDG_CONFIG_HOME") "~/.config/"))
+     (defvar xdg-cache-home (or (getenv "XDG_CACHE_HOME") "~/.cache/"))
+     (defvar xdg-data-home (or (getenv "XDG_DATA_HOME") "~/.local/share/"))
+     (defvar xdg-state-home (or (getenv "XDG_STATE_HOME") "~/.local/state/")))
+  (message "Windows and DOS based home directories are not supported"))
+
+;; Enabling xdg-macos-alternatives variable can be set to enable MacOS
+;; alternative default locations for the XDG Base Directories.
+;;
+;; For MacOS besides the standard XDG home directory locations, there are an
+;; additional "standard" locations that tend to get used:
 ;;
 ;;   XDG_CONFIG_HOME = ~/Library/Application Support
 ;;   XDG_CACHE_HOME = ~/Library/Caches/
 ;;   XDG_DATA_HOME = ~/Library/
 ;;
-;; this follows other language defaults, such as Go (https://pkg.go.dev/os#UserCacheDir)
+;; The above follows other language defaults; e.g. Go (https://pkg.go.dev/os#UserCacheDir)
+;;
+(if (and (eq system-type "darwin") (eq xdg-macos-alternatives t))
+    ((defvar xdg-config-home (or (getenv "XDG_CONFIG_HOME") "~/Library/Application Support/"))
+     (defvar xdg-cache-home (or (getenv "XDG_CACHE_HOME") "~/Library/Caches/"))
+     (defvar xdg-data-home (or (getenv "XDG_DATA_HOME") "~/Library/"))))
 
-(defvar xdg-config-emacs (expand-file-name "emacs" xdg-config-home))
-(defvar xdg-cache-emacs (expand-file-name "emacs" xdg-cache-home))
-(defvar xdg-data-emacs (expand-file-name "emacs" xdg-data-home))
-(defvar xdg-state-emacs (expand-file-name "emacs" xdg-state-home))
+;; Define the xdg-*-emacs locations since this will be the most commonly used
+;; configuration prefix for Emacs users.
+(if (not (member system-type dos-system-types))
+    ((defvar xdg-config-emacs (expand-file-name "emacs" xdg-config-home))
+     (defvar xdg-cache-emacs (expand-file-name "emacs" xdg-cache-home))
+     (defvar xdg-data-emacs (expand-file-name "emacs" xdg-data-home))
+     (defvar xdg-state-emacs (expand-file-name "emacs" xdg-state-home))))
 
-;; XDG User Directory support
+
+;; XDG User Directory support ------------------------------------------------------
+;;
 ;; https://www.freedesktop.org/wiki/Software/xdg-user-dirs/
-(if (not (member system-type windows-system-types))
-    (defvar xdg-desktop-dir (or (getenv "XDG_DESKTOP_DIR") "~/Desktop"))
-    (defvar xdg-download-dir (or (getenv "XDG_DOWNLOAD_DIR") "~/Downloads")))
-
+(if (not (member system-type dos-system-types))
+    ((defvar xdg-desktop-dir (or (getenv "XDG_DESKTOP_DIR") "~/Desktop/"))
+     (defvar xdg-download-dir (or (getenv "XDG_DOWNLOAD_DIR") "~/Downloads/"))))
 
 ;;; xdg.el end of file
