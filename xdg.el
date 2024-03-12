@@ -3,7 +3,7 @@
 ;; Author: Ryan Snodgrass <rsnodgrass@gmail.com>
 ;; Homepage: https://github.com/rsnodgrass/xdg-emacs
 ;; Keywords: xdg
-;; Version: 0.0.1
+;; Version: 0.1.1
 
 ;; This file is not part of GNU Emacs.
 
@@ -30,7 +30,7 @@
 
 (setq dos-system-types '("cygwin" "ms-dos" "windows-nt"))
 
-;; XDG Base Directory support ------------------------------------------------------
+;; XDG Base Directory support -------------------------------------------------
 
 (if (not (member system-type dos-system-types))
     ((defvar xdg-config-home
@@ -53,7 +53,8 @@
 ;;   XDG_CACHE_HOME = ~/Library/Caches/
 ;;   XDG_DATA_HOME = ~/Library/
 ;;
-;; The above follows other language defaults; e.g. Go (https://pkg.go.dev/os#UserCacheDir)
+;; The above follows other language defaults, for example:
+;;   - Go (https://pkg.go.dev/os#UserCacheDir)
 ;;
 (if (and (eq system-type "darwin") (eq xdg-macos-alternatives t))
     ((defvar xdg-config-home
@@ -63,8 +64,9 @@
      (defvar xdg-data-home
        (or (getenv "XDG_DATA_HOME") "~/Library/"))))
 
-;; Define the xdg-*-emacs locations since this will be the most commonly used
-;; configuration prefix for Emacs users.
+;; Define the xdg-*-emacs locations since this will be the most commonly
+;; used configuration prefix for Emacs users.
+;;
 (if (not (member system-type dos-system-types))
     ((defvar xdg-config-emacs
        (expand-file-name "emacs" xdg-config-home))
@@ -76,9 +78,10 @@
        (expand-file-name "emacs" xdg-state-home))))
 
 
-;; XDG User Directory support ------------------------------------------------------
+;; XDG User Directory support -------------------------------------------------
 ;;
 ;; https://www.freedesktop.org/wiki/Software/xdg-user-dirs/
+;;
 (if (not (member system-type dos-system-types))
     ((defvar xdg-desktop-dir
        (or (getenv "XDG_DESKTOP_DIR") "~/Desktop/"))
