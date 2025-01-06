@@ -2,7 +2,7 @@
 
 ![beta_badge](https://img.shields.io/badge/maturity-Beta-yellow.png)
 
-**NOTE: This is no longer necessary since Emacs released XDG directory support with [Emacs 29.4](https://git.savannah.gnu.org/cgit/emacs.git/commit/?id=4118297ae2fab4886b20d193ba511a229637aea3) in June 2024. Only older versions would benefit from this.**
+**NOTE: This is no longer necessary since Emacs released XDG directory support with Emacs 29.4 in June 2024. Only older versions would benefit from this.**
 
 Defines variables that conform to the [XDG Base Directory
 Specification](https://wiki.archlinux.org/title/XDG_Base_Directory) that can be used in
