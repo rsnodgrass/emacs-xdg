@@ -2,7 +2,7 @@
 
 ![beta_badge](https://img.shields.io/badge/maturity-Beta-yellow.png)
 
-**NOTE: This is no longer necessary since Emacs released XDG directory support with Emacs 29.4 in June 2024 (loading `~/.config/emacs/init.el` if present). Only older versions would benefit from this.**
+**NOTE: Emacs released XDG directory support with Emacs 29.4 in June 2024 (loads `~/.config/emacs/init.el` if present and `~/.emacs` doesn't exist). The rest of the variables defined in this package are still useful.**
 
 Defines variables that conform to the [XDG Base Directory
 Specification](https://wiki.archlinux.org/title/XDG_Base_Directory) that can be used in
